@@ -8,8 +8,8 @@ import '../../../shared/widgets/cards/base_card.dart';
 import '../../../shared/widgets/inputs/base_text_input.dart';
 import '../../../shared/widgets/layout/base_page_header.dart';
 import '../../../shared/widgets/modals/base_modal.dart';
-import '../widgets/modals/edit_product_modal.dart';
 import '../widgets/tables/product_table.dart';
+import 'edit_product_page.dart';
 
 class ProductsPage extends StatefulWidget {
   const ProductsPage({super.key});
@@ -36,7 +36,7 @@ class _ProductsPageState extends State<ProductsPage> {
                   builder: (context) {
                     return BaseModal(
                       title: 'Novo Produto',
-                      child: EditProductModal(),
+                      child: EditProductPage(),
                     );
                   },
                 );

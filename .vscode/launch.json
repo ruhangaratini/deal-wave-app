@@ -9,7 +9,7 @@
       "request": "launch",
       "type": "dart",
       "args": [
-        // "--web-experimental-hot-reload",
+        "--web-experimental-hot-reload",
         "--dart-define-from-file", "env.development.json"
       ]
     },
@@ -18,7 +18,6 @@
       "request": "launch",
       "type": "dart",
       "args": [
-        // "--web-experimental-hot-reload",
         "--dart-define-from-file", "env.production.json"
       ],
     }

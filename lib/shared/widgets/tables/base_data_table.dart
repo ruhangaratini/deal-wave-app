@@ -34,15 +34,33 @@ class BaseDataTable extends StatelessWidget {
           ),
         ),
       ),
-      child: PaginatedDataTable(
-        source: source,
-        columns: columns,
-        rowsPerPage: rowsPerPage ?? 30,
-        header: header ?? (actions != null ? Text('') : null),
-        actions: actions,
-        onPageChanged: onPageChanged,
-        showEmptyRows: false,
+      child: ScrollConfiguration(
+        behavior: _TableScrollBehavior(),
+        child: PaginatedDataTable(
+          source: source,
+          columns: columns,
+          rowsPerPage: rowsPerPage ?? 30,
+          header: header ?? (actions != null ? Text('') : null),
+          actions: actions,
+          onPageChanged: onPageChanged,
+          showEmptyRows: false,
+        ),
       ),
+    );
+  }
+}
+
+class _TableScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Widget buildScrollbar(
+    BuildContext context,
+    Widget child,
+    ScrollableDetails details,
+  ) {
+    return Scrollbar(
+      controller: details.controller,
+      thumbVisibility: true,
+      child: child,
     );
   }
 }

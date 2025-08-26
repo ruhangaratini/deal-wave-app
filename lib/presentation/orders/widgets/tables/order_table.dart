@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 
-import '../../../../domain/entities/product_entity.dart';
-import '../../../../domain/usecases/products/data_table_source_products.dart';
+import '../../../../domain/entities/order_entity.dart';
+import '../../../../domain/usecases/orders/data_table_source_orders.dart';
 import '../../../../shared/extensions/get_color_theme_extension.dart';
 import '../../../../shared/extensions/get_text_theme_extension.dart';
 import '../../../../shared/widgets/buttons/base_button.dart';
 import '../../../../shared/widgets/buttons/data_table_button.dart';
 import '../../../../shared/widgets/modals/base_modal.dart';
 import '../../../../shared/widgets/tables/base_data_table.dart';
-import '../../pages/edit_product_page.dart';
+import '../../pages/edit_order_page.dart';
 
-class ProductTable extends StatelessWidget {
-  const ProductTable({super.key});
+class OrderTable extends StatelessWidget {
+  const OrderTable({super.key});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    final source = DataTableSourceProducts(
+    final source = DataTableSourceOrders(
       pageSize: 30,
-      actions: (product) => generateActions(product, context),
+      actions: (order) => generateActions(order, context),
     );
 
     return BaseDataTable(
@@ -34,16 +34,17 @@ class ProductTable extends StatelessWidget {
       columns: [
         DataColumn(label: Text('#')),
         DataColumn(label: Text('Código')),
-        DataColumn(label: Text('Nome')),
-        DataColumn(label: Text('Estoque')),
+        DataColumn(label: Text('Cliente')),
+        DataColumn(label: Text('CNPJ')),
+        DataColumn(label: Text('Status')),
         DataColumn(label: Text('R\$')),
-        DataColumn(label: Text('Ativo')),
+        DataColumn(label: Text('Prazo')),
         DataColumn(label: Text('Última Atualização')),
       ],
     );
   }
 
-  Widget generateActions(ProductEntity product, BuildContext context) {
+  Widget generateActions(OrderEntity order, BuildContext context) {
     final theme = Theme.of(context);
 
     return Row(
@@ -55,8 +56,8 @@ class ProductTable extends StatelessWidget {
               context: context,
               builder: (context) {
                 return BaseModal(
-                  title: 'Produto ${product.code}',
-                  child: EditProductPage(),
+                  title: 'Pedido ${order.code}',
+                  child: EditOrderPage(),
                 );
               },
             );
