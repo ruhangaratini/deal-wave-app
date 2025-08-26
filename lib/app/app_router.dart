@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 
-import '../presentation/dashboards/pages/home_dashboard_page.dart';
+import '../presentation/dashboards/pages/overview_dashboard_page.dart';
 import '../presentation/login/pages/login_page.dart';
 import '../presentation/orders/pages/orders_page.dart';
 import '../presentation/products/pages/products_page.dart';
@@ -18,7 +18,7 @@ class AppRouter {
             routes: [
               GoRoute(
                 path: '/home',
-                builder: (context, state) => HomeDashboardPage(),
+                builder: (context, state) => OverviewDashboardPage(),
               ),
               GoRoute(
                 path: '/products',

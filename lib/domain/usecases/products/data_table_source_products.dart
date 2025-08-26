@@ -47,7 +47,19 @@ class DataTableSourceProducts extends DataTableSource {
     if (index >= _products.length) {
       if (!isLoading) _fetchPage();
 
-      return null;
+      return DataRow(
+        cells: [
+          index % pageSize == 0
+              ? DataCell(Text('Carregando...'))
+              : DataCell.empty,
+          DataCell.empty,
+          DataCell.empty,
+          DataCell.empty,
+          DataCell.empty,
+          DataCell.empty,
+          DataCell.empty,
+        ],
+      );
     }
 
     final product = _products[index];

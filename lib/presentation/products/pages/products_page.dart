@@ -6,6 +6,7 @@ import '../../../shared/widgets/buttons/base_button.dart';
 
 import '../../../shared/widgets/cards/base_card.dart';
 import '../../../shared/widgets/inputs/base_text_input.dart';
+import '../../../shared/widgets/layout/base_page_header.dart';
 import '../../../shared/widgets/modals/base_modal.dart';
 import '../widgets/modals/edit_product_modal.dart';
 import '../widgets/tables/product_table.dart';
@@ -25,10 +26,9 @@ class _ProductsPageState extends State<ProductsPage> {
     return ListView(
       padding: const EdgeInsets.all(24),
       children: [
-        Row(
+        BasePageHeader(
+          title: 'Produtos',
           children: [
-            Text('Produtos', style: theme.text.titleMedium),
-            const Spacer(),
             BaseButton(
               onPressed: () {
                 showDialog(
@@ -51,9 +51,6 @@ class _ProductsPageState extends State<ProductsPage> {
             ),
           ],
         ),
-        const SizedBox(height: 16),
-        const Divider(),
-        const SizedBox(height: 10),
         BaseCard(
           child: Padding(
             padding: const EdgeInsets.all(24),
@@ -70,6 +67,7 @@ class _ProductsPageState extends State<ProductsPage> {
             ),
           ),
         ),
+        const SizedBox(height: 10),
         ProductTable(),
       ],
     );

@@ -21,7 +21,7 @@ class BaseButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        padding: padding ?? EdgeInsets.symmetric(vertical: 4, horizontal: 14),
+        padding: padding ?? EdgeInsets.symmetric(vertical: 4, horizontal: 16),
         backgroundColor: color ?? theme.colorScheme.secondary,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(4),

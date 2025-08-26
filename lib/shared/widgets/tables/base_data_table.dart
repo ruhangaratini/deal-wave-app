@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/themes/app_color_theme.dart';
+
 class BaseDataTable extends StatelessWidget {
   final DataTableSource source;
   final List<DataColumn> columns;
@@ -26,6 +28,10 @@ class BaseDataTable extends StatelessWidget {
       data: theme.copyWith(
         cardTheme: theme.cardTheme.copyWith(
           color: theme.dataTableTheme.headingRowColor?.resolve({}),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusGeometry.circular(18),
+            side: BorderSide(color: AppColorTheme.grey, width: 0.3),
+          ),
         ),
       ),
       child: PaginatedDataTable(
