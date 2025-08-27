@@ -1,33 +1,12 @@
-import 'dart:math';
-
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/themes/app_color_theme.dart';
 import '../../../../shared/extensions/get_text_theme_extension.dart';
 
 class RevenueChart extends StatelessWidget {
-  const RevenueChart({super.key});
+  final List<BarChartGroupData> data;
 
-  List<BarChartGroupData> generateRevenueData() {
-    final List<BarChartGroupData> data = [];
-    final random = Random();
-
-    for (int i = 0; i < 12; i++) {
-      final y = random.nextDouble() * 100000;
-
-      data.add(
-        BarChartGroupData(
-          x: i,
-          barRods: [
-            BarChartRodData(toY: y, color: AppColorTheme.secondaryDark),
-          ],
-        ),
-      );
-    }
-
-    return data;
-  }
+  const RevenueChart({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +47,7 @@ class RevenueChart extends StatelessWidget {
             ),
           ),
         ),
-        barGroups: generateRevenueData(),
+        barGroups: data,
       ),
     );
   }
