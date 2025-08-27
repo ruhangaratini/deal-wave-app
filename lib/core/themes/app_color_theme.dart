@@ -19,6 +19,7 @@ class AppColorTheme {
   static const Color error = Color(0xFFF2542D);
   static const Color highlight = Color(0xFFFFCE47);
   static const Color chartBlue = Color(0xFF1D3557);
+  static const Color primaryButtonLight = Color(0xFF377A68);
 
   // Dark Theme
   static const Color primaryDark = Color(0xFF183424);
@@ -29,11 +30,13 @@ class AppColorTheme {
   static const Color textPrimaryDark = Color(0xFFFFFFFF);
   static const Color textSecondaryDark = Color(0xFFAAAAAA);
   static const Color chartBlueDark = Color(0xFF3A5A98);
+  static const Color primaryButtonDark = Color(0xFF377A68);
 
   static AppColorThemeExtension get lightTheme {
     return AppColorThemeExtension(
       icon: textPrimaryLight,
       contrastIcon: textPrimaryDark,
+      primaryButton: primaryButtonLight,
     );
   }
 
@@ -41,6 +44,7 @@ class AppColorTheme {
     return AppColorThemeExtension(
       icon: textPrimaryLight,
       contrastIcon: textPrimaryDark,
+      primaryButton: primaryButtonDark,
     );
   }
 }

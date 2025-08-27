@@ -28,7 +28,13 @@ class OrderTable extends StatelessWidget {
       actions: [
         BaseButton(
           onPressed: () {},
-          child: Text('Exportar', style: theme.text.bodyMedium),
+          child: Row(
+            children: [
+              Text('Exportar', style: theme.text.bodyContrastMedium),
+              const SizedBox(width: 6),
+              Icon(Icons.upload_file_rounded, color: theme.color.contrastIcon),
+            ],
+          ),
         ),
       ],
       columns: [
@@ -50,7 +56,7 @@ class OrderTable extends StatelessWidget {
     return Row(
       children: [
         DataTableButton(
-          icon: Icon(Icons.edit_rounded, color: theme.color.icon),
+          icon: Icon(Icons.edit_rounded, color: theme.color.contrastIcon),
           onPressed: () {
             showDialog(
               context: context,

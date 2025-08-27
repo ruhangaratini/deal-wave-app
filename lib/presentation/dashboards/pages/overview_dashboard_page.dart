@@ -373,7 +373,7 @@ class _SideBoard extends StatelessWidget {
           const SizedBox(height: 20),
           BaseButton(
             onPressed: () {},
-            child: Text('Relatórios', style: theme.text.bodyMedium),
+            child: Text('Relatórios', style: theme.text.bodyContrastMedium),
           ),
         ],
       ),

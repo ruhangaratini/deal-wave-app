@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../extensions/get_color_theme_extension.dart';
+
 class BaseButton extends StatelessWidget {
   final void Function() onPressed;
   final Color? color;
@@ -22,7 +24,7 @@ class BaseButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         padding: padding ?? EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-        backgroundColor: color ?? theme.colorScheme.secondary,
+        backgroundColor: color ?? theme.color.primaryButton,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(4),
         ),

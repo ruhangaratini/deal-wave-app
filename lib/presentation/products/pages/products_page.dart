@@ -43,9 +43,12 @@ class _ProductsPageState extends State<ProductsPage> {
               },
               child: Row(
                 children: [
-                  Text('Novo Produto', style: theme.text.bodyMedium),
+                  Text('Novo Produto', style: theme.text.bodyContrastMedium),
                   const SizedBox(width: 6),
-                  Icon(Icons.add_circle_rounded, color: theme.color.icon),
+                  Icon(
+                    Icons.add_circle_rounded,
+                    color: theme.color.contrastIcon,
+                  ),
                 ],
               ),
             ),
