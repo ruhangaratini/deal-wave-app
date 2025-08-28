@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/themes/app_color_theme.dart';
+import '../../themes/app_color_theme.dart';
 
 class BaseDataTable extends StatelessWidget {
   final DataTableSource source;

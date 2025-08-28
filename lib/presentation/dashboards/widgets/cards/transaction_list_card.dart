@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../shared/extensions/date_extension.dart';
-import '../../../../shared/extensions/get_color_theme_extension.dart';
-import '../../../../shared/extensions/get_text_theme_extension.dart';
+import '../../../shared/extensions/date_extension.dart';
+import '../../../shared/extensions/get_color_theme_extension.dart';
+import '../../../shared/extensions/get_text_theme_extension.dart';
 
 class TransactionListCard extends StatelessWidget {
   const TransactionListCard({super.key});

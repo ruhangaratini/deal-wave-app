@@ -4,11 +4,13 @@ class AppColorThemeExtension extends ThemeExtension<AppColorThemeExtension> {
   final Color icon;
   final Color contrastIcon;
   final Color primaryButton;
+  final Color checkbox;
 
   AppColorThemeExtension({
     required this.icon,
     required this.contrastIcon,
     required this.primaryButton,
+    required this.checkbox,
   });
 
   @override
@@ -16,11 +18,13 @@ class AppColorThemeExtension extends ThemeExtension<AppColorThemeExtension> {
     Color? icon,
     Color? contrastIcon,
     Color? primaryButton,
+    Color? checkbox,
   }) {
     return AppColorThemeExtension(
       icon: icon ?? this.icon,
       contrastIcon: contrastIcon ?? this.contrastIcon,
       primaryButton: primaryButton ?? this.primaryButton,
+      checkbox: checkbox ?? this.checkbox,
     );
   }
 
@@ -35,6 +39,7 @@ class AppColorThemeExtension extends ThemeExtension<AppColorThemeExtension> {
       icon: Color.lerp(icon, other.icon, t)!,
       contrastIcon: Color.lerp(contrastIcon, other.contrastIcon, t)!,
       primaryButton: Color.lerp(primaryButton, other.primaryButton, t)!,
+      checkbox: Color.lerp(checkbox, other.checkbox, t)!,
     );
   }
 }

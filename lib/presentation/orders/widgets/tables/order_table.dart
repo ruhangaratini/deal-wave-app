@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../../../domain/entities/order_entity.dart';
 import '../../../../domain/usecases/orders/data_table_source_orders.dart';
-import '../../../../shared/extensions/get_color_theme_extension.dart';
-import '../../../../shared/extensions/get_text_theme_extension.dart';
-import '../../../../shared/widgets/buttons/base_button.dart';
-import '../../../../shared/widgets/buttons/data_table_button.dart';
-import '../../../../shared/widgets/modals/base_modal.dart';
-import '../../../../shared/widgets/tables/base_data_table.dart';
+import '../../../shared/extensions/get_color_theme_extension.dart';
+import '../../../shared/extensions/get_text_theme_extension.dart';
+import '../../../shared/widgets/buttons/base_button.dart';
+import '../../../shared/widgets/buttons/data_table_button.dart';
+import '../../../shared/widgets/modals/base_modal.dart';
+import '../../../shared/widgets/tables/base_data_table.dart';
 import '../../pages/edit_order_page.dart';
 
 class OrderTable extends StatelessWidget {

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../../../domain/entities/product_entity.dart';
 import '../../../../domain/usecases/products/data_table_source_products.dart';
-import '../../../../shared/extensions/get_color_theme_extension.dart';
-import '../../../../shared/extensions/get_text_theme_extension.dart';
-import '../../../../shared/widgets/buttons/base_button.dart';
-import '../../../../shared/widgets/buttons/data_table_button.dart';
-import '../../../../shared/widgets/modals/base_modal.dart';
-import '../../../../shared/widgets/tables/base_data_table.dart';
-import '../../pages/edit_product_page.dart';
+import '../../../shared/extensions/get_color_theme_extension.dart';
+import '../../../shared/extensions/get_text_theme_extension.dart';
+import '../../../shared/widgets/buttons/base_button.dart';
+import '../../../shared/widgets/buttons/data_table_button.dart';
+import '../../../shared/widgets/modals/base_modal.dart';
+import '../../../shared/widgets/tables/base_data_table.dart';
+import '../../pages/product_form_page.dart';
 
 class ProductTable extends StatelessWidget {
   const ProductTable({super.key});
@@ -62,7 +62,7 @@ class ProductTable extends StatelessWidget {
               builder: (context) {
                 return BaseModal(
                   title: 'Produto ${product.code}',
-                  child: EditProductPage(),
+                  child: ProductFormPage(),
                 );
               },
             );

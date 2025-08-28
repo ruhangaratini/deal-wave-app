@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../shared/extensions/get_color_theme_extension.dart';
-import '../../../shared/extensions/get_text_theme_extension.dart';
-import '../../../shared/widgets/buttons/base_button.dart';
-import '../../../shared/widgets/cards/base_card.dart';
-import '../../../shared/widgets/inputs/base_text_input.dart';
-import '../../../shared/widgets/layout/base_page_header.dart';
-import '../../../shared/widgets/modals/base_modal.dart';
+import '../../shared/extensions/get_color_theme_extension.dart';
+import '../../shared/extensions/get_text_theme_extension.dart';
+import '../../shared/widgets/buttons/base_button.dart';
+import '../../shared/widgets/cards/base_card.dart';
+import '../../shared/widgets/inputs/base_input.dart';
+import '../../shared/widgets/layout/base_page_header.dart';
+import '../../shared/widgets/modals/base_modal.dart';
 import '../providers/orders_page_provider.dart';
 import '../widgets/tables/order_table.dart';
 import 'edit_order_page.dart';
@@ -71,7 +71,7 @@ class _OrdersPageState extends State<_OrdersPage> {
             child: Row(
               children: [
                 Flexible(
-                  child: BaseTextInput(
+                  child: BaseInput(
                     label: 'Buscar',
                     hint: 'Buscar',
                     suffixIcon: Icon(Icons.search, color: theme.color.icon),

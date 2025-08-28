@@ -15,8 +15,18 @@ class AppTheme {
       extensions: [AppTextTheme.lightTheme, AppColorTheme.lightTheme],
       dividerTheme: DividerThemeData(color: AppColorTheme.grey, thickness: 0.6),
       inputDecorationTheme: InputDecorationTheme(
-        fillColor: AppColorTheme.inputFillLight,
-        labelStyle: AppTextTheme.labelInputLight,
+        border: OutlineInputBorder(
+          borderSide: BorderSide(color: AppColorTheme.grey),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: AppColorTheme.grey),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red),
+          borderRadius: BorderRadius.circular(8),
+        ),
       ),
       dataTableTheme: DataTableThemeData(
         headingTextStyle: AppTextTheme.lightTheme.bodyMediumBold,

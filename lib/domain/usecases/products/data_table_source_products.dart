@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../shared/extensions/date_extension.dart';
+import '../../../presentation/shared/extensions/date_extension.dart';
 import '../../entities/product_entity.dart';
 
 class DataTableSourceProducts extends DataTableSource {

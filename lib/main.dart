@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'app/app_state.dart';
-import 'core/themes/app_theme.dart';
+import 'presentation/shared/app_state.dart';
+import 'presentation/shared/themes/app_theme.dart';
 
 void main() {
   runApp(

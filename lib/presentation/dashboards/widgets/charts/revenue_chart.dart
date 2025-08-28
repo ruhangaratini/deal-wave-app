@@ -1,7 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../shared/extensions/get_text_theme_extension.dart';
+import '../../../shared/extensions/get_text_theme_extension.dart';
 
 class RevenueChart extends StatelessWidget {
   final List<BarChartGroupData> data;

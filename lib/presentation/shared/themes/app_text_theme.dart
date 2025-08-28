@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../shared/extensions/app_text_theme_extension.dart';
+import '../extensions/app_text_theme_extension.dart';
 import 'app_color_theme.dart';
 
 class AppTextTheme {

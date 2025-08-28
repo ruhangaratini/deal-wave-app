@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../shared/extensions/get_text_theme_extension.dart';
-import '../../../shared/widgets/buttons/base_button.dart';
-import '../../../shared/widgets/inputs/base_text_input.dart';
+import '../../shared/extensions/get_text_theme_extension.dart';
+import '../../shared/widgets/buttons/base_button.dart';
+import '../../shared/widgets/inputs/base_input.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -41,15 +41,15 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 10),
                 Text('Bem-vindo', style: theme.textTheme.titleMedium),
                 const SizedBox(height: 20),
-                BaseTextInput(label: 'Email', hint: 'nome@email.com'),
+                BaseInput(label: 'Email', hint: 'nome@email.com'),
                 const SizedBox(height: 10),
-                BaseTextInput(label: 'Senha', hint: 'Senha', obscureText: true),
+                BaseInput(label: 'Senha', hint: 'Senha', obscureText: true),
                 const SizedBox(height: 50),
                 BaseButton(
                   onPressed: () {
                     context.go('/home');
                   },
-                  child: Text('Log In'),
+                  child: Text('Log In', style: theme.text.bodyContrastMedium),
                 ),
               ],
             ),

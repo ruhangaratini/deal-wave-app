@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../core/enums/menu_items_enum.dart';
+import '../../enums/menu_items_enum.dart';
 import '../../extensions/get_text_theme_extension.dart';
 
 const double _kLeftPadding = 20;
