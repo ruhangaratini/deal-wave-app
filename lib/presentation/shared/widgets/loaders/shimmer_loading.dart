@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 
-const _gradient = LinearGradient(
-  colors: [Color(0xFFEBEBF4), Color(0xFFF4F4F4), Color(0xFFEBEBF4)],
-  stops: [0.1, 0.3, 0.4],
-  begin: Alignment(-1.0, -0.3),
-  end: Alignment(1.0, 0.3),
-  tileMode: TileMode.clamp,
-);
+import '../../extensions/get_color_theme_extension.dart';
 
 class Shimmer extends StatefulWidget {
   static ShimmerState? of(BuildContext context) {
@@ -38,15 +32,17 @@ class ShimmerState extends State<Shimmer> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
-  LinearGradient get gradient => LinearGradient(
-    colors: _gradient.colors,
-    stops: _gradient.stops,
-    begin: _gradient.begin,
-    end: _gradient.end,
-    transform: _SlidingGradientTransform(
-      slidePercent: _shimmerController.value,
-    ),
-  );
+  LinearGradient get gradient {
+    return LinearGradient(
+      colors: Theme.of(context).color.shimmer,
+      stops: [0.1, 0.3, 0.4],
+      begin: Alignment(-1.0, -0.3),
+      end: Alignment(1.0, 0.3),
+      transform: _SlidingGradientTransform(
+        slidePercent: _shimmerController.value,
+      ),
+    );
+  }
 
   bool get isSized =>
       (context.findRenderObject() as RenderBox?)?.hasSize ?? false;

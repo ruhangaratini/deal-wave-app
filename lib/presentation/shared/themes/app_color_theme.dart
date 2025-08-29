@@ -43,6 +43,7 @@ class AppColorTheme {
       primaryButton: primaryButtonLight,
       checkbox: checkboxLight,
       readOnlyInput: readOnlyInputLight,
+      shimmer: [Color(0xFFEBEBF4), Color(0xFFF4F4F4), Color(0xFFEBEBF4)],
     );
   }
 
@@ -53,6 +54,7 @@ class AppColorTheme {
       primaryButton: primaryButtonDark,
       checkbox: checkboxDark,
       readOnlyInput: readOnlyInputDark,
+      shimmer: [Color(0xFF1E1E1E), Color(0xFF2A2A2A), Color(0xFF1E1E1E)],
     );
   }
 }

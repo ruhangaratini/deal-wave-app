@@ -6,6 +6,7 @@ class AppColorThemeExtension extends ThemeExtension<AppColorThemeExtension> {
   final Color primaryButton;
   final Color checkbox;
   final Color readOnlyInput;
+  final List<Color> shimmer;
 
   AppColorThemeExtension({
     required this.icon,
@@ -13,6 +14,7 @@ class AppColorThemeExtension extends ThemeExtension<AppColorThemeExtension> {
     required this.primaryButton,
     required this.checkbox,
     required this.readOnlyInput,
+    required this.shimmer,
   });
 
   @override
@@ -22,6 +24,7 @@ class AppColorThemeExtension extends ThemeExtension<AppColorThemeExtension> {
     Color? primaryButton,
     Color? checkbox,
     Color? readOnlyInput,
+    List<Color>? shimmer,
   }) {
     return AppColorThemeExtension(
       icon: icon ?? this.icon,
@@ -29,6 +32,7 @@ class AppColorThemeExtension extends ThemeExtension<AppColorThemeExtension> {
       primaryButton: primaryButton ?? this.primaryButton,
       checkbox: checkbox ?? this.checkbox,
       readOnlyInput: readOnlyInput ?? this.readOnlyInput,
+      shimmer: shimmer ?? this.shimmer,
     );
   }
 
@@ -45,6 +49,10 @@ class AppColorThemeExtension extends ThemeExtension<AppColorThemeExtension> {
       primaryButton: Color.lerp(primaryButton, other.primaryButton, t)!,
       checkbox: Color.lerp(checkbox, other.checkbox, t)!,
       readOnlyInput: Color.lerp(readOnlyInput, other.readOnlyInput, t)!,
+      shimmer: List.generate(
+        shimmer.length,
+        (i) => Color.lerp(shimmer[i], other.shimmer[i], t)!,
+      ),
     );
   }
 }
