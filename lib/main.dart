@@ -8,7 +8,7 @@ import 'presentation/shared/themes/app_theme.dart';
 void main() {
   runApp(
     MultiProvider(
-      providers: [Provider(create: (_) => AppState())],
+      providers: [ChangeNotifierProvider(create: (_) => AppState())],
       child: const MyApp(),
     ),
   );
@@ -21,20 +21,24 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final appState = context.read<AppState>();
 
-    return MaterialApp.router(
-      title: 'Deal Wave',
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: appState.theme,
-      routerConfig: appState.router.routes,
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      supportedLocales: const [Locale('pt', 'BR')],
-      locale: const Locale('pt', 'BR'),
-      debugShowCheckedModeBanner: false,
+    return Consumer<AppState>(
+      builder: (context, state, child) {
+        return MaterialApp.router(
+          title: 'Deal Wave',
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: appState.theme,
+          routerConfig: appState.router.routes,
+          localizationsDelegates: [
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+          supportedLocales: const [Locale('pt', 'BR')],
+          locale: const Locale('pt', 'BR'),
+          debugShowCheckedModeBanner: false,
+        );
+      },
     );
   }
 }

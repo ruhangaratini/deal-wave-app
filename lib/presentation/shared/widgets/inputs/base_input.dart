@@ -53,7 +53,7 @@ class BaseInput extends StatelessWidget {
             filled: readOnly,
             fillColor: theme.color.readOnlyInput,
             hintText: hint,
-            hintStyle: theme.text.bodyMedium.copyWith(),
+            hintStyle: theme.text.bodyMedium,
             suffixIcon: suffixIcon,
           ),
         ),

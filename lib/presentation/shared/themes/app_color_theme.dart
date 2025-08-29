@@ -32,9 +32,9 @@ class AppColorTheme {
   static const Color textPrimaryDark = Color(0xFFFFFFFF);
   static const Color textSecondaryDark = Color(0xFFAAAAAA);
   static const Color chartBlueDark = Color(0xFF3A5A98);
-  static const Color primaryButtonDark = Color(0xFF377A68);
+  static const Color primaryButtonDark = Color(0xFFB6E937);
   static const Color checkboxDark = Color(0xFF377A68);
-  static const Color readOnlyInputDark = Color(0xFFDEDEDE);
+  static const Color readOnlyInputDark = Color(0xFF454545);
 
   static AppColorThemeExtension get lightTheme {
     return AppColorThemeExtension(
@@ -48,8 +48,8 @@ class AppColorTheme {
 
   static AppColorThemeExtension get darkTheme {
     return AppColorThemeExtension(
-      icon: textPrimaryLight,
-      contrastIcon: textPrimaryDark,
+      icon: textPrimaryDark,
+      contrastIcon: textPrimaryLight,
       primaryButton: primaryButtonDark,
       checkbox: checkboxDark,
       readOnlyInput: readOnlyInputDark,

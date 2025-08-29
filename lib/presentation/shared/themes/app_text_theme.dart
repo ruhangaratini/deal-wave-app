@@ -127,6 +127,109 @@ class AppTextTheme {
   }
 
   static AppTextThemeExtension get darkTheme {
-    return lightTheme;
+    return AppTextThemeExtension(
+      titleLarge: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 32,
+        fontWeight: FontWeight.bold,
+        color: AppColorTheme.textPrimaryDark,
+      ),
+      titleMedium: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 28,
+        fontWeight: FontWeight.normal,
+        color: AppColorTheme.textPrimaryDark,
+      ),
+      titleSmall: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 24,
+        fontWeight: FontWeight.normal,
+        color: AppColorTheme.textPrimaryDark,
+      ),
+      bodyLarge: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 16,
+        fontWeight: FontWeight.normal,
+        color: AppColorTheme.textPrimaryDark,
+      ),
+      bodyMedium: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+        color: AppColorTheme.textPrimaryDark,
+      ),
+      bodyMediumBold: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 14,
+        fontWeight: FontWeight.bold,
+        color: AppColorTheme.textPrimaryDark,
+      ),
+      bodySmall: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 12,
+        fontWeight: FontWeight.normal,
+        color: AppColorTheme.textPrimaryDark,
+      ),
+      labelLarge: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 16,
+        fontWeight: FontWeight.normal,
+        color: AppColorTheme.textPrimaryDark,
+      ),
+      labelMedium: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+        color: AppColorTheme.textPrimaryDark,
+      ),
+      labelSmall: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 12,
+        fontWeight: FontWeight.normal,
+        color: AppColorTheme.textPrimaryDark,
+      ),
+      menuLarge: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 24,
+        fontWeight: FontWeight.w200,
+        color: AppColorTheme.textPrimaryDark,
+      ),
+      menuMedium: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+        color: AppColorTheme.textPrimaryDark,
+      ),
+      menuSmall: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 12,
+        fontWeight: FontWeight.normal,
+        color: AppColorTheme.textPrimaryDark,
+      ),
+      bodyContrastLarge: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 16,
+        fontWeight: FontWeight.normal,
+        color: AppColorTheme.textPrimaryLight,
+      ),
+      bodyContrastMedium: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+        color: AppColorTheme.textPrimaryLight,
+      ),
+      bodyContrastMediumBold: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 14,
+        fontWeight: FontWeight.bold,
+        color: AppColorTheme.textPrimaryLight,
+      ),
+      bodyContrastSmall: TextStyle(
+        fontFamily: 'Montserrat',
+        fontSize: 12,
+        fontWeight: FontWeight.normal,
+        color: AppColorTheme.textPrimaryLight,
+      ),
+    );
   }
 }

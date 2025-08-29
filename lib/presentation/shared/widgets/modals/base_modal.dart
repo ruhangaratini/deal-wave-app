@@ -20,7 +20,7 @@ class BaseModal extends StatelessWidget {
           margin: const EdgeInsets.symmetric(vertical: 60, horizontal: 100),
           constraints: const BoxConstraints.expand(),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: theme.cardColor,
             borderRadius: BorderRadius.circular(18),
           ),
           child: Column(

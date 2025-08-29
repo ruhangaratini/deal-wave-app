@@ -1,9 +1,11 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
+import '../../app_state.dart';
 import '../../enums/menu_items_enum.dart';
 import '../../extensions/get_text_theme_extension.dart';
+import '../inputs/base_switch_input.dart';
 
 const double _kLeftPadding = 20;
 const double _kIconPadding = 8;
@@ -18,66 +20,87 @@ class BaseMenu extends StatelessWidget {
     final theme = Theme.of(context);
     final currentPath = GoRouterState.of(context).uri.toString();
 
-    return Container(
-      decoration: BoxDecoration(color: theme.primaryColor),
-      width: 240,
-      child: Column(
-        children: [
-          const SizedBox(height: 30),
-          Row(
+    return Consumer<AppState>(
+      builder: (context, provider, child) {
+        return Container(
+          decoration: BoxDecoration(color: theme.primaryColor),
+          width: 240,
+          child: Column(
             children: [
-              const SizedBox(width: _kLeftPadding),
-              Icon(Icons.dashboard_rounded, color: Colors.white),
-              const SizedBox(width: _kIconPadding),
-              Text('Deal Wave', style: theme.text.menuLarge),
-            ],
-          ),
-          const SizedBox(height: 40),
-          _SectionTitle(title: 'MENU'),
-          const SizedBox(height: 10),
-          ...MenuItems.values.map((item) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              child: _NavTile(
-                icon: item.getIcon(),
-                label: item.getLabel(),
-                active: currentPath.startsWith(item.getPath()),
-                onTap: () => context.go(item.getPath()),
+              const SizedBox(height: 30),
+              Row(
+                children: [
+                  const SizedBox(width: _kLeftPadding),
+                  Icon(Icons.dashboard_rounded, color: Colors.white),
+                  const SizedBox(width: _kIconPadding),
+                  Text('Deal Wave', style: theme.text.menuLarge),
+                ],
               ),
-            );
-          }),
-          const SizedBox(height: 20),
-          _MenuDivider(),
-          const SizedBox(height: 20),
-          _SectionTitle(title: 'GERAL'),
-          const SizedBox(height: 10),
-          _NavTile(
-            icon: Icons.settings_rounded,
-            label: 'Configurações',
-            active: currentPath.startsWith('/settings'),
-            onTap: () {},
-          ),
-          const Spacer(),
-          _MenuDivider(),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              const SizedBox(width: _kLeftPadding),
-              CircleAvatar(backgroundColor: theme.colorScheme.secondary),
-              const SizedBox(width: _kIconPadding),
-              Flexible(
-                child: Text(
-                  'Nome do caba muito foda',
-                  style: theme.text.menuMedium,
-                  overflow: TextOverflow.ellipsis,
+              const SizedBox(height: 40),
+              _SectionTitle(title: 'MENU'),
+              const SizedBox(height: 10),
+              ...MenuItems.values.map((item) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: _NavTile(
+                    icon: item.getIcon(),
+                    label: item.getLabel(),
+                    active: currentPath.startsWith(item.getPath()),
+                    onTap: () => context.go(item.getPath()),
+                  ),
+                );
+              }),
+              const SizedBox(height: 20),
+              _MenuDivider(),
+              const SizedBox(height: 20),
+              _SectionTitle(title: 'GERAL'),
+              const SizedBox(height: 10),
+              _NavTile(
+                icon: Icons.settings_rounded,
+                label: 'Configurações',
+                active: currentPath.startsWith('/settings'),
+                onTap: () {},
+              ),
+              const Spacer(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: _kLeftPadding),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Tema Escuro', style: theme.text.menuMedium),
+                    BaseSwitchInput(
+                      value: provider.theme == ThemeMode.dark,
+                      onChanged: (value) {
+                        provider.setTheme(
+                          value ? ThemeMode.dark : ThemeMode.light,
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(width: _kLeftPadding),
+              _MenuDivider(),
+              const SizedBox(height: 10),
+              Row(
+                children: [
+                  const SizedBox(width: _kLeftPadding),
+                  CircleAvatar(backgroundColor: theme.colorScheme.secondary),
+                  const SizedBox(width: _kIconPadding),
+                  Flexible(
+                    child: Text(
+                      'Nome Usuário',
+                      style: theme.text.menuMedium,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  const SizedBox(width: _kLeftPadding),
+                ],
+              ),
+              const SizedBox(height: 20),
             ],
           ),
-          const SizedBox(height: 20),
-        ],
-      ),
+        );
+      },
     );
   }
 }

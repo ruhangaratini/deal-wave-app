@@ -15,6 +15,10 @@ class AppTheme {
         borderSide: BorderSide(color: AppColorTheme.grey),
         borderRadius: BorderRadius.circular(8),
       ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColorTheme.secondaryLight),
+        borderRadius: BorderRadius.circular(8),
+      ),
       errorBorder: OutlineInputBorder(
         borderSide: BorderSide(color: Colors.red),
         borderRadius: BorderRadius.circular(8),
@@ -59,6 +63,10 @@ class AppTheme {
         borderSide: BorderSide(color: AppColorTheme.grey),
         borderRadius: BorderRadius.circular(8),
       ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColorTheme.secondaryDark),
+        borderRadius: BorderRadius.circular(8),
+      ),
       errorBorder: OutlineInputBorder(
         borderSide: BorderSide(color: Colors.red),
         borderRadius: BorderRadius.circular(8),
@@ -81,6 +89,8 @@ class AppTheme {
         headingTextStyle: AppTextTheme.darkTheme.bodyMediumBold,
         dataTextStyle: AppTextTheme.darkTheme.bodyMedium,
         dividerThickness: 0.1,
+        headingRowColor: WidgetStatePropertyAll(AppColorTheme.cardDark),
+        dataRowColor: WidgetStatePropertyAll(AppColorTheme.cardDark),
       ),
       colorScheme: ColorScheme.dark(
         primary: AppColorTheme.primaryDark,
