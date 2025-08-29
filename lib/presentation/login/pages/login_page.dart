@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {
                     context.go('/home');
                   },
-                  child: Text('Log In', style: theme.text.bodyContrastMedium),
+                  child: Text('Entrar', style: theme.text.bodyContrastMedium),
                 ),
               ],
             ),
