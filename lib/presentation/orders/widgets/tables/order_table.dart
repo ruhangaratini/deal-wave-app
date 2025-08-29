@@ -8,7 +8,7 @@ import '../../../shared/widgets/buttons/base_button.dart';
 import '../../../shared/widgets/buttons/data_table_button.dart';
 import '../../../shared/widgets/modals/base_modal.dart';
 import '../../../shared/widgets/tables/base_data_table.dart';
-import '../../pages/edit_order_page.dart';
+import '../../pages/order_form_page.dart';
 
 class OrderTable extends StatelessWidget {
   const OrderTable({super.key});
@@ -19,7 +19,7 @@ class OrderTable extends StatelessWidget {
 
     final source = DataTableSourceOrders(
       pageSize: 30,
-      actions: (order) => generateActions(order, context),
+      actions: (order) => _generateActions(order, context),
     );
 
     return BaseDataTable(
@@ -50,7 +50,7 @@ class OrderTable extends StatelessWidget {
     );
   }
 
-  Widget generateActions(OrderEntity order, BuildContext context) {
+  Widget _generateActions(OrderEntity order, BuildContext context) {
     final theme = Theme.of(context);
 
     return Row(
@@ -63,7 +63,7 @@ class OrderTable extends StatelessWidget {
               builder: (context) {
                 return BaseModal(
                   title: 'Pedido ${order.code}',
-                  child: EditOrderPage(),
+                  child: OrderFormPage(order: order),
                 );
               },
             );

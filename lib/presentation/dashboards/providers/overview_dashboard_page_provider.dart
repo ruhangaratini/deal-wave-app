@@ -7,6 +7,10 @@ class OverviewDashboardPageProvider extends ChangeNotifier {
   bool isLoading = true;
   final List<BarChartGroupData> revenueChartData = [];
 
+  OverviewDashboardPageProvider() {
+    init();
+  }
+
   void init() {
     _generateRevenueData();
     Future.delayed(const Duration(milliseconds: 1000), () {

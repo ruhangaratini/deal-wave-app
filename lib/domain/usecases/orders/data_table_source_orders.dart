@@ -38,7 +38,7 @@ class DataTableSourceOrders extends DataTableSource {
           items: [],
           status: 'Aguardando Financeiro',
           total: 1999.99,
-          deadline: DateTime(DateTime.now().year + 1),
+          deadline: DateTime.now().add(const Duration(days: 40)),
           updatedAt: DateTime.now(),
         ),
       );

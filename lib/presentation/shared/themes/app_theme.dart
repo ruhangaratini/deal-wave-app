@@ -6,6 +6,21 @@ class AppTheme {
   AppTheme._();
 
   static ThemeData get lightTheme {
+    final inputTheme = InputDecorationTheme(
+      border: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColorTheme.grey),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColorTheme.grey),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.red),
+        borderRadius: BorderRadius.circular(8),
+      ),
+    );
+
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
@@ -14,20 +29,10 @@ class AppTheme {
       cardColor: AppColorTheme.cardLight,
       extensions: [AppTextTheme.lightTheme, AppColorTheme.lightTheme],
       dividerTheme: DividerThemeData(color: AppColorTheme.grey, thickness: 0.6),
-      inputDecorationTheme: InputDecorationTheme(
-        border: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColorTheme.grey),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColorTheme.grey),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.red),
-          borderRadius: BorderRadius.circular(8),
-        ),
+      dropdownMenuTheme: DropdownMenuThemeData(
+        inputDecorationTheme: inputTheme,
       ),
+      inputDecorationTheme: inputTheme,
       dataTableTheme: DataTableThemeData(
         headingTextStyle: AppTextTheme.lightTheme.bodyMediumBold,
         dataTextStyle: AppTextTheme.lightTheme.bodyMedium,
@@ -45,6 +50,21 @@ class AppTheme {
   }
 
   static ThemeData get darkTheme {
+    final inputTheme = InputDecorationTheme(
+      border: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColorTheme.grey),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColorTheme.grey),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.red),
+        borderRadius: BorderRadius.circular(8),
+      ),
+    );
+
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
@@ -53,10 +73,10 @@ class AppTheme {
       cardColor: AppColorTheme.cardDark,
       extensions: [AppTextTheme.darkTheme, AppColorTheme.darkTheme],
       dividerTheme: DividerThemeData(color: AppColorTheme.grey, thickness: 0.6),
-      inputDecorationTheme: InputDecorationTheme(
-        fillColor: AppColorTheme.inputFillDark,
-        labelStyle: AppTextTheme.labelInputDark,
+      dropdownMenuTheme: DropdownMenuThemeData(
+        inputDecorationTheme: inputTheme,
       ),
+      inputDecorationTheme: inputTheme,
       dataTableTheme: DataTableThemeData(
         headingTextStyle: AppTextTheme.darkTheme.bodyMediumBold,
         dataTextStyle: AppTextTheme.darkTheme.bodyMedium,

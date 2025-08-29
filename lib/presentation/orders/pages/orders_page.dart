@@ -10,7 +10,7 @@ import '../../shared/widgets/layout/base_page_header.dart';
 import '../../shared/widgets/modals/base_modal.dart';
 import '../providers/orders_page_provider.dart';
 import '../widgets/tables/order_table.dart';
-import 'edit_order_page.dart';
+import 'order_form_page.dart';
 
 class OrdersPage extends StatelessWidget {
   const OrdersPage({super.key});
@@ -47,7 +47,7 @@ class _OrdersPageState extends State<_OrdersPage> {
                   builder: (context) {
                     return BaseModal(
                       title: 'Novo Pedido',
-                      child: EditOrderPage(),
+                      child: OrderFormPage(),
                     );
                   },
                 );

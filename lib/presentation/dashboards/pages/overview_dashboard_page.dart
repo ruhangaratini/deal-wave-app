@@ -21,27 +21,6 @@ const int _kOverflowLayoutWidth = 1200;
 class OverviewDashboardPage extends StatelessWidget {
   const OverviewDashboardPage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => OverviewDashboardPageProvider(),
-      child: _OverviewDashboardPage(),
-    );
-  }
-}
-
-class _OverviewDashboardPage extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => _OverviewDashboardPageState();
-}
-
-class _OverviewDashboardPageState extends State<_OverviewDashboardPage> {
-  @override
-  void initState() {
-    context.read<OverviewDashboardPageProvider>().init();
-    super.initState();
-  }
-
   Widget _buildDesktopLayout(OverviewDashboardPageProvider provider) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,27 +56,31 @@ class _OverviewDashboardPageState extends State<_OverviewDashboardPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<OverviewDashboardPageProvider>(
-      builder: (context, provider, child) {
-        return LayoutBuilder(
-          builder: (context, constraints) {
-            final isOverflowing = constraints.maxWidth < _kOverflowLayoutWidth;
+    return ChangeNotifierProvider(
+      create: (_) => OverviewDashboardPageProvider(),
+      child: Consumer<OverviewDashboardPageProvider>(
+        builder: (context, provider, child) {
+          return LayoutBuilder(
+            builder: (context, constraints) {
+              final isOverflowing =
+                  constraints.maxWidth < _kOverflowLayoutWidth;
 
-            return Shimmer(
-              child: ListView(
-                padding: const EdgeInsets.all(24),
-                children: [
-                  BasePageHeader(title: 'Home'),
-                  if (isOverflowing)
-                    ..._buildMobileLayout(provider)
-                  else
-                    _buildDesktopLayout(provider),
-                ],
-              ),
-            );
-          },
-        );
-      },
+              return Shimmer(
+                child: ListView(
+                  padding: const EdgeInsets.all(24),
+                  children: [
+                    BasePageHeader(title: 'Home'),
+                    if (isOverflowing)
+                      ..._buildMobileLayout(provider)
+                    else
+                      _buildDesktopLayout(provider),
+                  ],
+                ),
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }
