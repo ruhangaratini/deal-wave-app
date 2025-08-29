@@ -9,6 +9,8 @@ class BaseNumberInput extends BaseInput {
     required super.label,
     super.controller,
     super.onChanged,
+    super.initialValue,
+    super.readOnly,
     super.hint,
   }) : super(
          keyboardType: TextInputType.numberWithOptions(decimal: true),

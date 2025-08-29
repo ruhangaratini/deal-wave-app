@@ -83,12 +83,32 @@ class _ProductFormPageState extends State<_ProductFormPage> {
                     child: BaseNumberInput(
                       label: 'Preço',
                       hint: 'R\$',
+                      initialValue: provider.price?.toString(),
                       onChanged: (value) {
                         provider.price = double.tryParse(value);
                       },
                     ),
                   ),
+                  const SizedBox(width: _kInputSpacerWidth),
+                  Flexible(
+                    child: BaseNumberInput(
+                      label: 'Estoque',
+                      hint: '123',
+                      initialValue: provider.stock?.toString(),
+                      readOnly: provider.productExists,
+                      onChanged: (value) {
+                        provider.stock = double.tryParse(value);
+                      },
+                    ),
+                  ),
                 ],
+              ),
+              const SizedBox(height: 10),
+              const Divider(),
+              const SizedBox(height: 10),
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text('Estoque', style: theme.text.titleSmall),
               ),
               const Spacer(),
               Row(

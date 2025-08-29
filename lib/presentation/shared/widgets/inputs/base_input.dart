@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../extensions/get_color_theme_extension.dart';
 import '../../extensions/get_text_theme_extension.dart';
 
 class BaseInput extends StatelessWidget {
@@ -10,6 +11,7 @@ class BaseInput extends StatelessWidget {
   final String label;
   final String? hint;
   final bool obscureText;
+  final bool readOnly;
   final Icon? suffixIcon;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
@@ -22,6 +24,7 @@ class BaseInput extends StatelessWidget {
     required this.label,
     this.hint,
     this.obscureText = false,
+    this.readOnly = false,
     this.suffixIcon,
     this.keyboardType,
     this.inputFormatters,
@@ -41,11 +44,14 @@ class BaseInput extends StatelessWidget {
           onChanged: onChanged,
           initialValue: initialValue,
           obscureText: obscureText,
+          readOnly: readOnly,
+          canRequestFocus: !readOnly,
           style: theme.text.bodyMedium,
           keyboardType: keyboardType,
           inputFormatters: inputFormatters,
           decoration: InputDecoration(
-            filled: false,
+            filled: readOnly,
+            fillColor: theme.color.readOnlyInput,
             hintText: hint,
             hintStyle: theme.text.bodyMedium.copyWith(),
             suffixIcon: suffixIcon,
