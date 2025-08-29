@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/login-page-background.jpg'),
+            image: AssetImage('assets/images/login-page-background.jpg'),
             repeat: ImageRepeat.repeat,
           ),
         ),
