@@ -60,24 +60,17 @@ class OverviewDashboardPage extends StatelessWidget {
       create: (_) => OverviewDashboardPageProvider(),
       child: Consumer<OverviewDashboardPageProvider>(
         builder: (context, provider, child) {
-          return LayoutBuilder(
-            builder: (context, constraints) {
-              final isOverflowing =
-                  constraints.maxWidth < _kOverflowLayoutWidth;
-
-              return Shimmer(
-                child: ListView(
-                  padding: const EdgeInsets.all(24),
-                  children: [
-                    BasePageHeader(title: 'Home'),
-                    if (isOverflowing)
-                      ..._buildMobileLayout(provider)
-                    else
-                      _buildDesktopLayout(provider),
-                  ],
-                ),
-              );
-            },
+          return Shimmer(
+            child: ListView(
+              padding: const EdgeInsets.all(24),
+              children: [
+                BasePageHeader(title: 'Home'),
+                if (MediaQuery.of(context).size.width < _kOverflowLayoutWidth)
+                  ..._buildMobileLayout(provider)
+                else
+                  _buildDesktopLayout(provider),
+              ],
+            ),
           );
         },
       ),
