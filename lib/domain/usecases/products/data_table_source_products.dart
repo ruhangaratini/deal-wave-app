@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../presentation/shared/extensions/currency_extension.dart';
 import '../../../presentation/shared/extensions/date_extension.dart';
 import '../../entities/product_entity.dart';
 
@@ -71,7 +72,7 @@ class DataTableSourceProducts extends DataTableSource {
         DataCell(Text(product.code)),
         DataCell(Text(product.name)),
         DataCell(Text(product.stock.toString())),
-        DataCell(Text(product.price.toString())),
+        DataCell(Text(product.price.toCurrency())),
         DataCell(Text(product.active ? 'Sim' : 'Não')),
         DataCell(Text(product.updatedAt.ddMMyyyy(showHour: true))),
       ],

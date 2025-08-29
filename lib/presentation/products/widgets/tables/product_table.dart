@@ -16,10 +16,9 @@ class ProductTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     final source = DataTableSourceProducts(
       pageSize: 30,
-      actions: (product) => generateActions(product, context),
+      actions: (product) => _generateActions(product, context),
     );
 
     return BaseDataTable(
@@ -42,14 +41,14 @@ class ProductTable extends StatelessWidget {
         DataColumn(label: Text('Código')),
         DataColumn(label: Text('Nome')),
         DataColumn(label: Text('Estoque')),
-        DataColumn(label: Text('R\$')),
+        DataColumn(label: Text('Preço')),
         DataColumn(label: Text('Ativo')),
         DataColumn(label: Text('Última Atualização')),
       ],
     );
   }
 
-  Widget generateActions(ProductEntity product, BuildContext context) {
+  Widget _generateActions(ProductEntity product, BuildContext context) {
     final theme = Theme.of(context);
 
     return Row(
@@ -62,7 +61,7 @@ class ProductTable extends StatelessWidget {
               builder: (context) {
                 return BaseModal(
                   title: 'Produto ${product.code}',
-                  child: ProductFormPage(),
+                  child: ProductFormPage(product: product),
                 );
               },
             );

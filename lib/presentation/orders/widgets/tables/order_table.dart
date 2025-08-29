@@ -43,7 +43,7 @@ class OrderTable extends StatelessWidget {
         DataColumn(label: Text('Cliente')),
         DataColumn(label: Text('CNPJ')),
         DataColumn(label: Text('Status')),
-        DataColumn(label: Text('R\$')),
+        DataColumn(label: Text('Total')),
         DataColumn(label: Text('Prazo')),
         DataColumn(label: Text('Última Atualização')),
       ],

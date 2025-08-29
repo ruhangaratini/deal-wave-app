@@ -38,7 +38,9 @@ class BaseModal extends StatelessWidget {
                   Expanded(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
-                      children: [CloseButton()],
+                      children: [
+                        Tooltip(message: 'Fechar', child: CloseButton()),
+                      ],
                     ),
                   ),
                 ],

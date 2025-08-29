@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../domain/entities/product_entity.dart';
 import '../../shared/extensions/get_text_theme_extension.dart';
 import '../../shared/widgets/buttons/base_button.dart';
 import '../../shared/widgets/inputs/base_checkbox_input.dart';
@@ -11,12 +12,14 @@ import '../providers/product_form_page_provider.dart';
 const double _kInputSpacerWidth = 24;
 
 class ProductFormPage extends StatelessWidget {
-  const ProductFormPage({super.key});
+  final ProductEntity? product;
+
+  const ProductFormPage({super.key, this.product});
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => ProductFormPageProvider(),
+      create: (_) => ProductFormPageProvider(product: product),
       child: _ProductFormPage(),
     );
   }
@@ -33,7 +36,7 @@ class _ProductFormPageState extends State<_ProductFormPage> {
     final theme = Theme.of(context);
 
     return Consumer<ProductFormPageProvider>(
-      builder: (context, value, child) {
+      builder: (context, provider, child) {
         return Padding(
           padding: const EdgeInsets.all(8),
           child: Column(
@@ -45,8 +48,8 @@ class _ProductFormPageState extends State<_ProductFormPage> {
                     children: [
                       Text('Produto Ativo', style: theme.text.bodyMedium),
                       BaseCheckboxInput(
-                        value: value.activeProduct,
-                        onChanged: value.setActiveProduct,
+                        value: provider.activeProduct,
+                        onChanged: provider.setActiveProduct,
                       ),
                     ],
                   ),
@@ -55,15 +58,35 @@ class _ProductFormPageState extends State<_ProductFormPage> {
               Row(
                 children: [
                   Flexible(
-                    child: BaseInput(label: 'Nome do Produto', hint: 'Produto'),
+                    child: BaseInput(
+                      label: 'Nome do Produto',
+                      hint: 'Produto',
+                      initialValue: provider.name,
+                      onChanged: (value) {
+                        provider.name = value;
+                      },
+                    ),
                   ),
                   const SizedBox(width: _kInputSpacerWidth),
                   Flexible(
-                    child: BaseInput(label: 'Código', hint: 'P0001'),
+                    child: BaseInput(
+                      label: 'Código',
+                      hint: 'P0001',
+                      initialValue: provider.code,
+                      onChanged: (value) {
+                        provider.code = value;
+                      },
+                    ),
                   ),
                   const SizedBox(width: _kInputSpacerWidth),
                   Flexible(
-                    child: BaseNumberInput(label: 'Preço', hint: 'R\$'),
+                    child: BaseNumberInput(
+                      label: 'Preço',
+                      hint: 'R\$',
+                      onChanged: (value) {
+                        provider.price = double.tryParse(value);
+                      },
+                    ),
                   ),
                 ],
               ),

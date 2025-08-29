@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../presentation/shared/extensions/currency_extension.dart';
 import '../../../presentation/shared/extensions/date_extension.dart';
 import '../../entities/customer_entity.dart';
 import '../../entities/order_entity.dart';
@@ -34,6 +35,7 @@ class DataTableSourceOrders extends DataTableSource {
             name: 'Nome Cliente',
             document: '00.000.000/0000-00',
           ),
+          items: [],
           status: 'Aguardando Financeiro',
           total: 1999.99,
           deadline: DateTime(DateTime.now().year + 1),
@@ -78,7 +80,7 @@ class DataTableSourceOrders extends DataTableSource {
         DataCell(Text(order.customer.name)),
         DataCell(Text(order.customer.document)),
         DataCell(Text(order.status)),
-        DataCell(Text(order.total.toString())),
+        DataCell(Text(order.total.toCurrency())),
         DataCell(Text(order.deadline.ddMMyyyy())),
         DataCell(Text(order.updatedAt.ddMMyyyy(showHour: true))),
       ],

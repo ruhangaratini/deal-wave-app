@@ -78,7 +78,7 @@ class _OverviewDashboardPageState extends State<_OverviewDashboardPage> {
   @override
   Widget build(BuildContext context) {
     return Consumer<OverviewDashboardPageProvider>(
-      builder: (context, value, child) {
+      builder: (context, provider, child) {
         return LayoutBuilder(
           builder: (context, constraints) {
             final isOverflowing = constraints.maxWidth < _kOverflowLayoutWidth;
@@ -89,9 +89,9 @@ class _OverviewDashboardPageState extends State<_OverviewDashboardPage> {
                 children: [
                   BasePageHeader(title: 'Home'),
                   if (isOverflowing)
-                    ..._buildMobileLayout(value)
+                    ..._buildMobileLayout(provider)
                   else
-                    _buildDesktopLayout(value),
+                    _buildDesktopLayout(provider),
                 ],
               ),
             );
